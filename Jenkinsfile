@@ -13,10 +13,11 @@ pipeline {
                     def nvdApiKey = 'b5b67dad-17ec-4f1f-8814-51bb72c2f93b'
 
                     // Run Dependency-Check with additional arguments including API key
-                    dependencyCheck additionalArguments: '''
+                    sh '''
+                        dependency-check.sh
                         --format HTML --format XML
                         --nvd-api-key ${nvdApiKey}
-                    ''', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
+                    '''
                 }
             }
         }
